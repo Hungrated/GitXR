@@ -29,7 +29,7 @@ class RecommendPage extends Component {
 
         <EventItem
           actionTime={'2017-11-17T07:58:31Z'}
-          actionUser={'CarGuo'}
+          actionUser={'Hungrated'}
           actionUserPic={'https://avatars0.githubusercontent.com/u/27534854?s=64&v=4'}
           actionMode={'publish'}
           des={'asdfafdas'}
@@ -41,7 +41,7 @@ class RecommendPage extends Component {
           onClickFun={() => {
           }}/>
         <RepositoryItem
-          ownerName={'CarGuo'}
+          ownerName={'Hungrated'}
           ownerPic={'https://avatars0.githubusercontent.com/u/27534854?s=64&v=4'}
           repositoryName={'GitXR'}
           repositoryStar={''}
@@ -52,7 +52,7 @@ class RecommendPage extends Component {
         />
         <IssueItem
           actionTime={'2017-11-17T07:58:31Z'}
-          actionUser={'CarGuo'}
+          actionUser={'Hungrated'}
           actionUserPic={'https://avatars0.githubusercontent.com/u/27534854?s=64&v=4'}
           issueComment={'asdfafdas'}
           commentCount={'222'}
