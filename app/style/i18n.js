@@ -9,7 +9,7 @@ I18n.defaultLocale = 'zh-CN';
 
 I18n.translations = {
   'en': {
-    appName: 'GSYGitHubApp',
+    appName: 'GitXR',
     netError: 'network error',
     netTimeout: 'network timeout',
     ok: 'ok',
@@ -172,7 +172,7 @@ I18n.translations = {
     clearCache: 'clearCache'
   },
   'zh-CN': {
-    appName: 'GSYGitHubApp',
+    appName: 'GitXR',
     netError: '网络错误',
     netTimeout: '网络超时',
     ok: '确定',

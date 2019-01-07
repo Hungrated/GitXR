@@ -33,7 +33,7 @@ class RecommendPage extends Component {
           actionUserPic={'https://avatars0.githubusercontent.com/u/27534854?s=64&v=4'}
           actionMode={'publish'}
           des={'asdfafdas'}
-          actionTarget={'GSYGitHubApp'}/>
+          actionTarget={'GitXR'}/>
 
         <CommonRowItem
           itemIcon={'sc-github'}
@@ -43,7 +43,7 @@ class RecommendPage extends Component {
         <RepositoryItem
           ownerName={'CarGuo'}
           ownerPic={'https://avatars0.githubusercontent.com/u/27534854?s=64&v=4'}
-          repositoryName={'GSYGitHubApp'}
+          repositoryName={'GitXR'}
           repositoryStar={''}
           repositoryFork={''}
           repositoryWatch={''}
@@ -56,7 +56,7 @@ class RecommendPage extends Component {
           actionUserPic={'https://avatars0.githubusercontent.com/u/27534854?s=64&v=4'}
           issueComment={'asdfafdas'}
           commentCount={'222'}
-          issueTag={'GSYGitHubApp/ASDFASDFASDF'}/>
+          issueTag={'GitXR/ASDFASDFASDF'}/>
       </View>
     );
   }

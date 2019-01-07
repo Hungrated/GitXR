@@ -32,7 +32,7 @@ class AboutPage extends Component {
   _createIssue (text) {
     let {repositoryName, userName} = this.props;
     Actions.LoadingModal({backExit: false});
-    issueActions.createIssue('CarGuo', 'GSYGithubApp',
+    issueActions.createIssue('Hungrated', 'GitXR',
       {title: 'APP ' + I18n('feedback'), body: text}).then((res) => {
       setTimeout(() => {
         if (res && res.result) {
@@ -121,8 +121,8 @@ class AboutPage extends Component {
             itemText={I18n('projectUrl')}
             onClickFun={() => {
               Actions.RepositoryDetail({
-                repositoryName: 'GSYGithubApp', ownerName: 'CarGuo'
-                , title: 'CarGuo/GSYGithubApp'
+                repositoryName: 'GitXR', ownerName: 'Hungrated'
+                , title: 'Hungrated/GitXR'
               });
             }}/>
           <CommonRowItem
@@ -156,7 +156,7 @@ export const getNewsVersion = (showTip, onlyCheck = true) => {
   if (Platform.OS === 'ios' && onlyCheck) {
     return;
   }
-  repositoryActions.getRepositoryRelease('CarGuo', 'GSYGithubApp', 1, false)
+  repositoryActions.getRepositoryRelease('Hungrated', 'GitXR', 1, false)
     .then((res) => {
       if (res && res.result) {
         //github只能有release的versionName，没有code，囧
@@ -180,7 +180,7 @@ export const getNewsVersion = (showTip, onlyCheck = true) => {
                 res.data[0].body,
               textConfirm: () => {
                 if (Platform.OS === 'ios') {
-                  Linking.openURL(hostWeb + 'CarGuo/GSYGithubApp/releases');
+                  Linking.openURL(hostWeb + 'Hungrated/GitXR/releases');
                 } else {
                   Linking.openURL(downloadUrl);
                 }

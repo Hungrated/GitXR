@@ -45,15 +45,6 @@ class DynamicPage extends Component {
     });
     AppState.addEventListener('change', this._handleAppStateChange);
 
-    /*setTimeout(() => {
-        if (__DEV__) {
-            Actions.VersionPage({
-                ownerName: "CarGuo",
-                repositoryName:"GSYGithubApp",
-                title: "CarGuo/GSYGithubApp"
-            })
-        }
-    }, 1000)*/
 
   }
 
