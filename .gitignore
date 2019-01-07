@@ -55,6 +55,6 @@ buck-out/
 # Bundle artifact
 *.jsbundle
 
-
+.java-version
 app/config/ignoreConfig.js
 package-lock.json
