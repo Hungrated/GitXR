@@ -843,9 +843,12 @@ const getUserRepository100StatusDao = async (userName) => {
   let url = Address.userRepos(userName, 'pushed') + '&page=1&per_page=100';
   let res = await Api.netFetch(url);
   if (res && res.result && res.data.length > 0) {
-    let stared = 0;
+    let stared = 0,stared_rep_count = 0;
     res.data.forEach((item) => {
       stared += item.watchers_count;
+      if (item.stargazers_count > 0){
+          stared_rep_count +=1;
+      }
     });
 
     function sortNumber (a, b) {
@@ -856,7 +859,8 @@ const getUserRepository100StatusDao = async (userName) => {
     return {
       data: {
         list: res.data,
-        stared: stared
+        stared: stared,
+        beStaredRepCount:stared_rep_count
       },
       result: true
     };

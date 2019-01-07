@@ -30,7 +30,8 @@ class BasePersonPage extends Component {
     this.state = {
       dataSource: [],
       beStaredCount: '---',
-      beStaredList: null
+      beStaredList: null,
+      beStaredRepCount: '---'
     };
     this.page = 2;
     this.showType = -1;
@@ -218,7 +219,8 @@ class BasePersonPage extends Component {
         if (res.result) {
           this.setState({
             beStaredCount: res.data.stared + '',
-            beStaredList: res.data.list
+            beStaredList: res.data.list,
+            beStaredRepCount: res.data.beStaredRepCount + ''
           });
         }
       });
@@ -247,7 +249,8 @@ class BasePersonPage extends Component {
           I18n('userCreate') + resolveTime(userInfo.created_at)}
           backNotifyCall={this.getBackNotifyCall}
           unRead={this.state.unRead}
-          star={(userInfo.starred) ? userInfo.starred : '---'}
+          // star={(userInfo.starred) ? userInfo.starred : '---'}
+          star = {this.state.beStaredRepCount}
           repos={userInfo.public_repos + ''}
           follower={userInfo.followers + ''}
           followed={userInfo.following + ''}
