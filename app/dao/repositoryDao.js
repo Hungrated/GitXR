@@ -851,7 +851,9 @@ const getUserRepository100StatusDao = async (userName) => {
           stared_rep_count +=1;
       }
     });
-    let myStar = Address.myStar('created');
+    let myStar = Address.myStar().headers.map.link
+    let myStarCount = myStar.substring(myStar.lastIndexOf('page=')+'page='.length,myStar.lastIndexOf('>'))
+
     function sortNumber (a, b) {
       return b.watchers_count - a.watchers_count;
     }
@@ -862,7 +864,7 @@ const getUserRepository100StatusDao = async (userName) => {
         list: res.data,
         stared: stared,
         // beStaredRepCount:stared_rep_count
-        beStaredRepCount:myStar.length
+        beStaredRepCount: myStarCount
       },
       result: true
     };
