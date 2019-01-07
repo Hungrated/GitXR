@@ -58,3 +58,4 @@ buck-out/
 .java-version
 app/config/ignoreConfig.js
 package-lock.json
+.vscode
