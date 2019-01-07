@@ -666,6 +666,7 @@ const getRepositoryTagDao = async (userName, reposName, page) => {
   };
 };
 
+
 /**
  * 获取仓库的提交列表
  */
@@ -850,7 +851,7 @@ const getUserRepository100StatusDao = async (userName) => {
           stared_rep_count +=1;
       }
     });
-
+    let myStar = Address.myStar('created');
     function sortNumber (a, b) {
       return b.watchers_count - a.watchers_count;
     }
@@ -860,7 +861,8 @@ const getUserRepository100StatusDao = async (userName) => {
       data: {
         list: res.data,
         stared: stared,
-        beStaredRepCount:stared_rep_count
+        // beStaredRepCount:stared_rep_count
+        beStaredRepCount:myStar.length
       },
       result: true
     };
