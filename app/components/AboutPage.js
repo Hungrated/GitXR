@@ -100,7 +100,7 @@ class AboutPage extends Component {
               }, styles.shadowCard]}
             itemText={I18n('author')}
             onClickFun={() => {
-              Actions.PersonPage({currentUser: 'CarGuo'});
+              Actions.PersonPage({currentUser: 'Hungrated'});
             }}/>
           <CommonRowItem
             showIconNext={true}
