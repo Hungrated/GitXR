@@ -41,6 +41,12 @@ export default AddressLocal = {
     return `${host}search/repositories?q=topic:${topic}&sort=stars&order=desc`;
   },
   /**
+   * 搜索topic tag
+   */
+  searchTopic: (topic) => {
+    return `${host}search/repositories?q=topic:${topic}&sort=stars&order=desc`;
+  },
+  /**
    * 用户的仓库 get
    */
   userRepos: (userName, sort) => {
