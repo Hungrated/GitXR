@@ -15,227 +15,225 @@ import { downloadUrl, hostWeb } from '../net/address'
  * 关于
  */
 class AboutPage extends Component {
-  constructor(props) {
-    super(props)
-    this._createIssue = this._createIssue.bind(this)
-    this.showFeedback = this.showFeedback.bind(this)
-  }
+    constructor(props) {
+        super(props)
+        this._createIssue = this._createIssue.bind(this)
+        this.showFeedback = this.showFeedback.bind(this)
+    }
 
-  componentDidMount() {}
+    componentDidMount() {}
 
-  componentWillUnmount() {}
+    componentWillUnmount() {}
 
-  _createIssue(text) {
-    let { repositoryName, userName } = this.props
-    Actions.LoadingModal({
-      backExit: false
-    })
-    issueActions
-      .createIssue('Hungrated', 'GitXR', {
-        title: 'APP ' + I18n('feedback'),
-        body: text
-      })
-      .then(res => {
-        setTimeout(() => {
-          if (res && res.result) {
-            Actions.pop()
-            Toast('Thanks For Feedback')
-          } else {
-            this.showFeedback(text)
-          }
-        }, 500)
-      })
-  }
+    _createIssue(text) {
+        let { repositoryName, userName } = this.props
+        Actions.LoadingModal({
+            backExit: false
+        })
+        issueActions
+            .createIssue('Hungrated', 'GitXR', {
+                title: 'APP ' + I18n('feedback'),
+                body: text
+            })
+            .then(res => {
+                setTimeout(() => {
+                    if (res && res.result) {
+                        Actions.pop()
+                        Toast('Thanks For Feedback')
+                    } else {
+                        this.showFeedback(text)
+                    }
+                }, 500)
+            })
+    }
 
-  showFeedback(text) {
-    Actions.TextInputModal({
-      textConfirm: this._createIssue,
-      titleText: I18n('feedback'),
-      needEditTitle: false,
-      text: text,
-      titleValue: '',
-      bottomBar: true
-    })
-  }
+    showFeedback(text) {
+        Actions.TextInputModal({
+            textConfirm: this._createIssue,
+            titleText: I18n('feedback'),
+            needEditTitle: false,
+            text: text,
+            titleValue: '',
+            bottomBar: true
+        })
+    }
 
-  render() {
-    return (
-      <View style={styles.mainBox}>
-        {' '}
-        <StatusBar
-          hidden={false}
-          backgroundColor={'transparent'}
-          translucent
-          barStyle={'light-content'}
-        />{' '}
-        <ScrollView style={styles.flex}>
-          {' '}
-          <CommonRowItem
+    render() {
+        return (
+            <View style={styles.mainBox}>
+            {' '}
+            <StatusBar
+            hidden={false}
+            backgroundColor={'transparent'}
+            translucent
+            barStyle={'light-content'}
+            />{' '}
+            <ScrollView style={styles.flex}>
+            {' '}
+            <CommonRowItem
             showIconNext={true}
             topLine={false}
             bottomLine={false}
             itemIcon={'git-commit'}
             textStyle={[
-              styles.centered,
-              styles.normalText,
-              {
-                textAlignVertical: 'center',
-                marginHorizontal: Constant.normalMarginEdge
-              }
+                styles.centered,
+                styles.normalText,
+                {
+                    textAlignVertical: 'center',
+                    marginHorizontal: Constant.normalMarginEdge
+                }
             ]}
             iconSize={20}
             viewStyle={[
-              {
-                borderRadius: 4,
-                marginTop: Constant.normalMarginEdge,
-                paddingLeft: Constant.normalMarginEdge
-              },
-              styles.shadowCard
+                {
+                    borderRadius: 4,
+                    marginTop: Constant.normalMarginEdge,
+                    paddingLeft: Constant.normalMarginEdge
+                },
+                styles.shadowCard
             ]}
             itemText={I18n('version') + ': ' + VersionNumber.appVersion}
             onClickFun={() => {
-              getNewsVersion(true, false)
+                getNewsVersion(true, false)
             }}
-          />{' '}
-          <CommonRowItem
+            />{' '}
+            <CommonRowItem
             showIconNext={true}
             topLine={false}
             bottomLine={false}
             itemIcon={'organization'}
             textStyle={[
-              styles.centered,
-              styles.normalText,
-              {
-                textAlignVertical: 'center',
-                marginHorizontal: Constant.normalMarginEdge
-              }
+                styles.centered,
+                styles.normalText,
+                {
+                    textAlignVertical: 'center',
+                    marginHorizontal: Constant.normalMarginEdge
+                }
             ]}
             iconSize={20}
             viewStyle={[
-              {
-                borderRadius: 4,
-                marginTop: Constant.normalMarginEdge,
-                paddingLeft: Constant.normalMarginEdge
-              },
-              styles.shadowCard
+                {
+                    borderRadius: 4,
+                    marginTop: Constant.normalMarginEdge,
+                    paddingLeft: Constant.normalMarginEdge
+                },
+                styles.shadowCard
             ]}
             itemText={I18n('author')}
             onClickFun={() => {
-              Actions.PersonPage({
-                currentUser: 'CarGuo'
-              })
-            }}
-          />{' '}
-          <CommonRowItem
+
+                Actions.PersonPage({currentUser: 'Hungrated'});
+            }}/>
+            <CommonRowItem
             showIconNext={true}
             topLine={false}
             bottomLine={false}
             itemIcon={'link'}
             textStyle={[
-              styles.centered,
-              styles.normalText,
-              {
-                textAlignVertical: 'center',
-                marginHorizontal: Constant.normalMarginEdge
-              }
+                styles.centered,
+                styles.normalText,
+                {
+                    textAlignVertical: 'center',
+                    marginHorizontal: Constant.normalMarginEdge
+                }
             ]}
             iconSize={20}
             viewStyle={[
-              {
-                borderRadius: 4,
-                marginTop: Constant.normalMarginEdge,
-                paddingLeft: Constant.normalMarginEdge
-              },
-              styles.shadowCard
+                {
+                    borderRadius: 4,
+                    marginTop: Constant.normalMarginEdge,
+                    paddingLeft: Constant.normalMarginEdge
+                },
+                styles.shadowCard
             ]}
             itemText={I18n('projectUrl')}
             onClickFun={() => {
-              Actions.RepositoryDetail({
-                repositoryName: 'GitXR',
-                ownerName: 'Hungrated',
-                title: 'Hungrated/GitXR'
-              })
+                Actions.RepositoryDetail({
+                    repositoryName: 'GitXR',
+                    ownerName: 'Hungrated',
+                    title: 'Hungrated/GitXR'
+                })
             }}
-          />{' '}
-          <CommonRowItem
+            />{' '}
+            <CommonRowItem
             showIconNext={true}
             topLine={false}
             bottomLine={false}
             itemIcon={'question'}
             textStyle={[
-              styles.centered,
-              styles.normalText,
-              {
-                textAlignVertical: 'center',
-                marginHorizontal: Constant.normalMarginEdge
-              }
+                styles.centered,
+                styles.normalText,
+                {
+                    textAlignVertical: 'center',
+                    marginHorizontal: Constant.normalMarginEdge
+                }
             ]}
             iconSize={20}
             viewStyle={[
-              {
-                borderRadius: 4,
-                marginTop: Constant.normalMarginEdge,
-                paddingLeft: Constant.normalMarginEdge
-              },
-              styles.shadowCard
+                {
+                    borderRadius: 4,
+                    marginTop: Constant.normalMarginEdge,
+                    paddingLeft: Constant.normalMarginEdge
+                },
+                styles.shadowCard
             ]}
             itemText={I18n('feedback')}
             onClickFun={() => {
-              this.showFeedback('')
+                this.showFeedback('')
             }}
-          />{' '}
-        </ScrollView>{' '}
-      </View>
-    )
-  }
+            />{' '}
+            </ScrollView>{' '}
+            </View>
+        )
+    }
 }
 
 export const getNewsVersion = (showTip, onlyCheck = true) => {
-  //ios不检查更新
-  if (Platform.OS === 'ios' && onlyCheck) {
-    return
-  }
-  repositoryActions
-    .getRepositoryRelease('Hungrated', 'GitXR', 1, false)
-    .then(res => {
-      if (res && res.result) {
-        //github只能有release的versionName，没有code，囧
-        let versionName = res.data[0].name
-        if (__DEV__) {
-          console.log('service versionName ', versionName)
-        }
-        if (versionName) {
-          let versionNameNum = parseFloat(versionName)
-          let currentNum = parseFloat(VersionNumber.appVersion)
-          let newsHad = versionNameNum > currentNum
-          if (__DEV__) {
-            console.log('service versionNameNum ', versionNameNum)
-            console.log('local currentNum ', currentNum)
-            console.log('version update newsHad ', newsHad)
-          }
-          if (newsHad) {
-            Actions.ConfirmModal({
-              titleText: I18n('update'),
-              text:
-                I18n('update') +
-                ': ' +
-                res.data[0].name +
-                '\n' +
-                res.data[0].body,
-              textConfirm: () => {
-                if (Platform.OS === 'ios') {
-                  Linking.openURL(hostWeb + 'Hungrated/GitXR/releases')
-                } else {
-                  Linking.openURL(downloadUrl)
+    //ios不检查更新
+    if (Platform.OS === 'ios' && onlyCheck) {
+        return
+    }
+    repositoryActions
+        .getRepositoryRelease('Hungrated', 'GitXR', 1, false)
+        .then(res => {
+            if (res && res.result) {
+                //github只能有release的versionName，没有code，囧
+                let versionName = res.data[0].name
+                if (__DEV__) {
+                    console.log('service versionName ', versionName)
                 }
-              }
-            })
-          } else {
-            if (showTip) Toast(I18n('newestVersion'))
-          }
-        }
-      }
-    })
+                if (versionName) {
+                    let versionNameNum = parseFloat(versionName)
+                    let currentNum = parseFloat(VersionNumber.appVersion)
+                    let newsHad = versionNameNum > currentNum
+                    if (__DEV__) {
+                        console.log('service versionNameNum ', versionNameNum)
+                        console.log('local currentNum ', currentNum)
+                        console.log('version update newsHad ', newsHad)
+                    }
+                    if (newsHad) {
+                        Actions.ConfirmModal({
+                            titleText: I18n('update'),
+                            text:
+                            I18n('update') +
+                            ': ' +
+                            res.data[0].name +
+                            '\n' +
+                            res.data[0].body,
+                            textConfirm: () => {
+                                if (Platform.OS === 'ios') {
+                                    Linking.openURL(hostWeb + 'Hungrated/GitXR/releases')
+                                } else {
+                                    Linking.openURL(downloadUrl)
+                                }
+                            }
+                        })
+                    } else {
+                        if (showTip) Toast(I18n('newestVersion'))
+                    }
+                }
+            }
+        })
 }
 
 export default AboutPage
