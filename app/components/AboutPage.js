@@ -121,8 +121,7 @@ class AboutPage extends Component {
             ]}
             itemText={I18n('author')}
             onClickFun={() => {
-
-                Actions.PersonPage({currentUser: 'Hungrated'});
+              Actions.PersonPage({currentUser: 'Hungrated'});
             }}/>
             <CommonRowItem
             showIconNext={true}
